@@ -1,4 +1,5 @@
 import React from 'react';
+import Botao from '../../Botao';
 import ListaSuspensa from '../../ListaSuspensa';
 import CampoTexto from '../CampoTexto';
 import './FormularioColab.css';
@@ -20,6 +21,7 @@ const Formulario = () => {
             <CampoTexto label="Cargo" placeholder="Digite seu cargo" />
             <CampoTexto label="Imagem" placeholder="Digite a url da sua imagem" />
             <ListaSuspensa label="Time" itens={times} />
+            <Botao> Criar Card </Botao>
         </form>
     </section>
   )
