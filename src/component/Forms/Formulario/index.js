@@ -4,13 +4,16 @@ import ListaSuspensa from '../../ListaSuspensa';
 import CampoTexto from '../CampoTexto';
 import './FormularioColab.css';
 
-const Formulario = () => {
+const Formulario = (props) => {
   const times = [
     'Programação',
     'Front-end',
     'Data Science',
     'Mobile',
-    'Inovação e Gestão'
+    'Inovação e Gestão',
+    'Devops',
+    'UX e Design',
+
   ]
 
   const [nome, setNome] = useState('')
@@ -21,7 +24,13 @@ const Formulario = () => {
 //recebendo o evento do formulario
   const aoSalvar = (evento) => {
     evento.preventDefault()
-    console.log('formulario foi enviado', nome, cargo, imagem)
+    props.aoColaboradorCadastrado({
+      nome: nome,
+      cargo: cargo,
+      imagem: imagem,
+      time: time
+    })
+    console.log('formulario foi enviado',"(", nome, ",", cargo, ",", imagem, ")")
   }
 
   return (
