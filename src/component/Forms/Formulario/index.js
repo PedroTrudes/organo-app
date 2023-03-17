@@ -5,16 +5,6 @@ import CampoTexto from '../CampoTexto';
 import './FormularioColab.css';
 
 const Formulario = (props) => {
-  const times = [
-    'Programação',
-    'Front-end',
-    'Data Science',
-    'Mobile',
-    'Inovação e Gestão',
-    'Devops',
-    'UX e Design',
-
-  ]
 
   const [nome, setNome] = useState('')
   const [cargo, setCargo] = useState('')
@@ -31,6 +21,10 @@ const Formulario = (props) => {
       time: time
     })
     console.log('formulario foi enviado',"(", nome, ",", cargo, ",", imagem, ")")
+    setNome('')
+    setCargo('')
+    setImagem('')
+    setTime('')
   }
 
   return (
@@ -40,7 +34,7 @@ const Formulario = (props) => {
             <CampoTexto obrigatorio={true} label="Nome" placeholder="Digite seu nome" valor={nome} aoAlterado={valor => setNome(valor)} />
             <CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite seu cargo" valor={cargo} aoAlterado={valor => setCargo(valor)} />
             <CampoTexto obrigatorio={true} label="Imagem" placeholder="Digite a url da sua imagem" valor={imagem} aoAlterado={valor => setImagem(valor)} />
-            <ListaSuspensa obrigatorio={true} label="Time" itens={times} valor={time} aoAlterado={valor => setTime(valor)} />
+            <ListaSuspensa obrigatorio={true} label="Time" itens={props.times} valor={time} aoAlterado={valor => setTime(valor)} />
             <Botao> Criar Card </Botao>
         </form>
     </section>
